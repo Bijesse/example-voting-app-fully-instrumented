@@ -57,17 +57,20 @@ Locate the text `<YOUR-NR-INGEST-LICENSE-KEY>` in the 3 files listed below and r
 * /result/Dockerfile  
 
 ## Generate and view data in New Relic
-* Restart your applicaiton by running `docker compose up` in your terminal window.
-* Exxercise the application at [http://localhost:5100](http://localhost:5100) and locate the 3 service in your New Relic account. Data should appear within 5 minutes. 
+* Restart your application locally using the 3 commands below in your terminal window:
+  * First tear down your Docker containers with `docker compose down`
+  * Run the following command to forcefully rebuild your images: `docker compose build --no-cache`
+  * Then run `docker compose up` again to start your containers
+* Exercise the application at [http://localhost:5100](http://localhost:5100) and locate the 3 services in your New Relic account. Data should appear within 5 minutes. 
 
 ## Instrument your infrastructure
 Extend the instrumentation of this application by instrumenting the Docker containers hosting your application. 
 
-To do this, click the `Add Data` button in the New Relic explorer on the left hand navigation pane, Search for `Docker` and follow the guided install instructions. 
+To do this, click the `Add Data` button in the New Relic explorer on the left navigation pane, Search for `Docker`, and follow the guided install instructions. 
 
 ## Notes
 
-The voting application only accepts one vote per client browser. It does not register additional votes if a vote has already been submitted from a client.
+The voting application only accepts one vote per client browser. It does not register additional votes if a client has already submitted a vote. However, you can submit multiple votes is you use several browsers on your device.
 
 This isn't an example of a properly architected perfectly designed distributed app... it's just a simple
 example of the various types of pieces and languages you might see (queues, persistent data, etc), and how to
