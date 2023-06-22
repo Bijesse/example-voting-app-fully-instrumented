@@ -14,6 +14,15 @@ RUN npm install -g nodemon
 
 COPY package*.json ./
 
+ENV NEW_RELIC_NO_CONFIG_FILE=true
+ENV NEW_RELIC_DISTRIBUTED_TRACING_ENABLED=true \
+NEW_RELIC_LOG=stdout  
+ENV NEW_RELIC_APP_NAME="voting-results" 
+ENV NEW_RELIC_LICENSE_KEY="<YOUR-NR-INGEST-LICENSE-KEY>" 
+  
+
+
+
 RUN npm ci \
  && npm cache clean --force \
  && mv /app/node_modules /node_modules
