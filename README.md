@@ -52,6 +52,10 @@ The only thing you need to do to send data to your New Relic account is to input
 
 Locate the text `<YOUR-NR-INGEST-LICENSE-KEY>` in the 3 files listed below and replace the text with the [New Relic ingest license key](https://docs.newrelic.com/docs/apis/intro-apis/new-relic-api-keys/#ingest-keys) associated with your account.
 
+* /vote/newrelic.ini
+* /worker/Dockerfile
+* /result/Dockerfile  
+
 ## Generate and view data in New Relic
 * Restart your applicaiton by running `docker compose up` in your terminal window.
 * Exxercise the application at [http://localhost:5100](http://localhost:5100) and locate the 3 service in your New Relic account. Data should appear within 5 minutes. 
