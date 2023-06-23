@@ -2,7 +2,7 @@
 
 A simple distributed application instrumented with New Relic APM running across multiple Docker containers.
 
-Follow the instructions below to have a version of this applicaiton running locally and sending data to your New Relic account.
+Follow the instructions below to have a version of this application running locally and sending data to your New Relic account.
 
 ## Architecture
 
@@ -42,35 +42,35 @@ After experimenting with the app, stop the local instance by pressing `ctrl-C` i
 *Please note: Although you have a functioning app, at this moment, you are not sending any data to New Relic yet.*
 
 ## Instrumentation
-This version of the application already includes all of the New Relic instrumentation code needed to send data to New Relic from the following services:
+This version of the application already includes much of the New Relic instrumentation code needed to send data to New Relic from the following services:
 
 * voting-app-frontend
 * example-voting-app-worker
 * voting-results  
 
-The only thing you need to do to send data to your New Relic account is to input your Ingest License key into each service. *If you are interested in instrumenting each of these services yourself, you can find instructions to do so in [this repo](https://github.com/Bijesse/example-voting-app)*
+In order to send data to your New Relic account you must complete the two steps below:
 
-Locate the text `<YOUR-NR-INGEST-LICENSE-KEY>` in the 3 files listed below and replace the text with the [New Relic ingest license key](https://docs.newrelic.com/docs/apis/intro-apis/new-relic-api-keys/#ingest-keys) associated with your account.
+1. In your terminal, change directory to the result directory `cd result` and run the command `npm install newrelic --save`. After the download is complete, navigate back into the root directory `cd ..`
+2. Locate the text `<YOUR-NR-INGEST-LICENSE-KEY>` in the 3 files listed below and replace the text with the [New Relic ingest license key](https://docs.newrelic.com/docs/apis/intro-apis/new-relic-api-keys/#ingest-keys) associated with your account.
 
 * /vote/newrelic.ini
 * /worker/Dockerfile
 * /result/Dockerfile  
+  
+*If you are interested in instrumenting each of these services yourself, you can find instructions to do so in [this repo](https://github.com/Bijesse/example-voting-app)*
 
 ## Generate and view data in New Relic
-* Restart your application locally using the 3 commands below in your terminal window:
-  * First tear down your Docker containers with `docker compose down`
-  * Run the following command to forcefully rebuild your images: `docker compose build --no-cache`
-  * Then run `docker compose up` again to start your containers
-* Exercise the application at [http://localhost:5100](http://localhost:5100) and locate the 3 services in your New Relic account. Data should appear within 5 minutes. 
+* Restart your application by running `docker compose up` in your terminal window.
+* Exxercise the application at [http://localhost:5100](http://localhost:5100) and locate the 3 service in your New Relic account. Data should appear within 5 minutes. 
 
 ## Instrument your infrastructure
 Extend the instrumentation of this application by instrumenting the Docker containers hosting your application. 
 
-To do this, click the `Add Data` button in the New Relic explorer on the left navigation pane, Search for `Docker`, and follow the guided install instructions. 
+To do this, click the `Add Data` button in the New Relic Explorer on the left navigation pane, Search for `Docker`, and follow the guided install instructions. 
 
 ## Notes
 
-The voting application only accepts one vote per client browser. It does not register additional votes if a client has already submitted a vote. However, you can submit multiple votes is you use several browsers on your device.
+The voting application only accepts one vote per client browser. It does not register additional votes if a client has already submitted a vote.
 
 This isn't an example of a properly architected perfectly designed distributed app... it's just a simple
 example of the various types of pieces and languages you might see (queues, persistent data, etc), and how to
