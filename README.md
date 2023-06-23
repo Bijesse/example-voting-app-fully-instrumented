@@ -18,26 +18,23 @@ Follow the instructions below to have a version of this application running loca
 In order to spin up this application with Docker, you will need the following software:  
 
 * A free account with [New Relic](https://newrelic.com)
-* [Git](https://github.com/git-guides/install-git) - You can verify installation with `git –version`
-* [Docker Desktop](https://www.docker.com/products/docker-desktop/) - You can verify installation with `docker run hello-world`
+* Free access to [GitHub Codespaces](https://github.com/features/codespaces) from your GitHub account
 
-*Note: the above verification commands should be ran in Terminal on Mac or Command Prompt on Windows*
-
-## Getting started - Clone this repository
-1. From a new Terminal or Command Prompt window, clone this repository using Git `git clone https://github.com/Bijesse/example-voting-app-fully-instrumented.git`
-2. Navigate into your new workspace using `cd example-voting-app-fully-instrumented`
+## Getting started - Open a Codespace
+1. On this page, click the green "Code" button and select the Codespaces tab.
+2. Click the plus sign to generate a new Codespace
 
 
 ## Run this app locally
-In order to get this application up and running on your machine, you only need to run one command: 
+In order to get this application up and running in your Codespace, you only need to run one command: 
 ```shell
 docker compose up
 ```
 
-The `vote` app will be running at [http://localhost:5100](http://localhost:5100), and the `results` will be at [http://localhost:5001](http://localhost:5001).
+The `vote` app will run at localhost:5100, and the `results` will be at localhost:5001. Codespace will generate a custom URL for each of these apps. Be sure to click the pop-up provided to you once the build is complete.
 
 
-After experimenting with the app, stop the local instance by pressing `ctrl-C` in your Terminal window.
+After experimenting with the app, stop the local instance by pressing `ctrl-C` in the Codespace Terminal window.
 
 *Please note: Although you have a functioning app, at this moment, you are not sending any data to New Relic yet.*
 
@@ -61,7 +58,7 @@ In order to send data to your New Relic account you must complete the two steps 
 
 ## Generate and view data in New Relic
 * Restart your application by running `docker compose up` in your terminal window.
-* Exxercise the application at [http://localhost:5100](http://localhost:5100) and locate the 3 service in your New Relic account. Data should appear within 5 minutes. 
+* Exxercise the application at localhost:5100 (the URL previously provided to you by Codespaces) and locate the 3 services in your New Relic account. Data should appear within 5 minutes. 
 
 ## Instrument your infrastructure
 Extend the instrumentation of this application by instrumenting the Docker containers hosting your application. 
