@@ -67,6 +67,8 @@ To do this, click the `Add Data` button in the New Relic Explorer on the left na
 
 ## Notes
 
+**Codespaces free limits:** Personal GitHub accounts have an allocated 120 hours of free Codespace time per month. Be sure to stop your Codespace when you are done with this lab to avoid any charges to your account.
+
 The voting application only accepts one vote per client browser. It does not register additional votes if a client has already submitted a vote.
 
 This isn't an example of a properly architected perfectly designed distributed app... it's just a simple
